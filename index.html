@@ -1,5 +1,583 @@
 <!DOCTYPE html>
-<html>
-<head><title>My Git Website</title></head>
-<body><h1>Hello, World!</h1></body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Trent Hoy, a learning experience leader bridging pedagogy, technology, AI, and product strategy." />
+  <title>Trent Hoy | Learning Experience Portfolio</title>
+
+  <style>
+    :root {
+      --navy: #16365c;
+      --blue: #2457a6;
+      --ink: #222831;
+      --muted: #5f6b7a;
+      --line: #d9e2ef;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #3a7bd5;
+      --soft-blue: #eaf2ff;
+      --radius: 18px;
+      --shadow: 0 18px 40px rgba(22, 54, 92, 0.12);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Aptos, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--navy);
+      color: white;
+      padding: 0.75rem 1rem;
+      z-index: 1000;
+    }
+
+    .skip-link:focus { left: 1rem; top: 1rem; }
+
+    header {
+      background:
+        radial-gradient(circle at top left, rgba(58, 123, 213, 0.26), transparent 34rem),
+        linear-gradient(135deg, #ffffff 0%, #edf4ff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.15rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      font-size: 1.3rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.1rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 650;
+    }
+
+    nav a { color: var(--ink); }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4.75rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--blue);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      color: var(--navy);
+    }
+
+    .hero-copy {
+      margin: 1.35rem 0 0;
+      max-width: 58ch;
+      font-size: 1.18rem;
+      color: #344054;
+    }
+
+    .cta-row {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.72rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid var(--navy);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .button.primary { background: var(--navy); color: white; }
+    .button.secondary { color: var(--navy); background: white; }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid white;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      font-size: 1rem;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .metric {
+      padding: 1rem;
+      border-radius: 14px;
+      background: var(--soft-blue);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.7rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    main section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 1.65rem;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.8rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 48ch;
+      color: var(--muted);
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+    }
+
+    .pill {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.72rem 0.9rem;
+      text-align: center;
+      font-weight: 750;
+      color: var(--navy);
+      box-shadow: 0 8px 18px rgba(22, 54, 92, 0.06);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(22, 54, 92, 0.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-thumb {
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(135deg, rgba(22, 54, 92, 0.82), rgba(58, 123, 213, 0.62)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 12px, rgba(255,255,255,0.05) 12px 24px);
+      display: flex;
+      align-items: end;
+      padding: 1rem;
+      color: white;
+      font-weight: 850;
+      font-size: 1.3rem;
+      letter-spacing: -0.04em;
+    }
+
+    .project-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      font-weight: 750;
+      color: var(--blue);
+      background: var(--soft-blue);
+      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+    }
+
+    .project-card h3 {
+      margin: 0 0 0.45rem;
+      color: var(--navy);
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .project-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .project-link {
+      margin-top: auto;
+      font-weight: 800;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 12px 28px rgba(22, 54, 92, 0.08);
+    }
+
+    .panel h3 {
+      color: var(--navy);
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .timeline-item {
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .timeline-item strong { color: var(--navy); }
+
+    .tech-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .tech-list p { margin: 0; }
+    .tech-list strong { color: var(--navy); }
+
+    .contact {
+      text-align: center;
+      background: white;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      max-width: none;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .contact-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin: 0 0 1rem;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .split { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .pill-grid { grid-template-columns: 1fr 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 0.65rem; }
+    }
+
+    @media (max-width: 620px) {
+      .nav-wrap { display: block; }
+      nav ul { margin-top: 0.85rem; flex-wrap: wrap; }
+      .hero { padding-top: 3.5rem; }
+      .metrics, .project-grid, .pill-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.75rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="#">Trent Hoy</a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Learning Experience • Product Strategy • Emerging Technology</p>
+        <h1 id="page-title">I design scalable learning experiences at the intersection of pedagogy, technology, and product strategy.</h1>
+        <p class="hero-copy">
+          I’m Trent Hoy, a learning experience leader with 15+ years in teaching, learning design, and digital learning product development across higher education and corporate learning.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#work">View selected work</a>
+          <a class="button secondary" href="resume.pdf">Download resume</a>
+          <a class="button secondary" href="mailto:trenthoy@gmail.com">Contact me</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Career highlights">
+        <h2>Career Highlights</h2>
+        <div class="metrics">
+          <div class="metric"><strong>15+</strong><span>years in learning design</span></div>
+          <div class="metric"><strong>71</strong><span>learning products launched</span></div>
+          <div class="metric"><strong>1,030+</strong><span>content units developed</span></div>
+          <div class="metric"><strong>400+</strong><span>active courses managed</span></div>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main id="main">
+    <section aria-labelledby="competencies-title">
+      <div class="section-head">
+        <h2 id="competencies-title">Core strengths</h2>
+        <p>A senior learning profile spanning design, product, technology, and operational leadership.</p>
+      </div>
+
+      <div class="pill-grid" aria-label="Core competencies">
+        <div class="pill">Learning Experience Design</div>
+        <div class="pill">Learning Product Strategy</div>
+        <div class="pill">Instructional Design & Learning Architecture</div>
+        <div class="pill">AI & Emerging Technologies</div>
+        <div class="pill">Operational Leadership</div>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 id="work-title">Selected work</h2>
+        <p>Case studies that show how I translate strategy, technology, and instructional design into practical learning experiences.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-thumb">Berlitz English 9–10</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">Product redesign</span><span class="tag">Advanced English</span><span class="tag">Multimedia</span></div>
+            <h3>Berlitz English 9–10: Online Practice</h3>
+            <p>Redesigned advanced online practice around authentic media, deeper comprehension, and meaningful real-world application.</p>
+            <a class="project-link" href="projects/berlitz-english-9-10.html">Read case study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">Kitchen Cordon Bleu</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">Simulation</span><span class="tag">Accessibility</span><span class="tag">Storyline</span></div>
+            <h3>Kitchen Cordon Bleu</h3>
+            <p>An accessible inventory auditing simulation designed as an alternative to a virtual reality experience for graduate business learners.</p>
+            <a class="project-link" href="projects/kitchen-cordon-bleu.html">Read case study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">Online Course Design</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">Higher education</span><span class="tag">Course design</span><span class="tag">Faculty support</span></div>
+            <h3>Online Course Design</h3>
+            <p>Selected course design projects spanning online French, media theory, organizational behavior, and interactive learning experiences.</p>
+            <a class="project-link" href="projects/online-course-design.html">Read case study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">AI Learning Tools</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">AI</span><span class="tag">Prototyping</span><span class="tag">Workflow design</span></div>
+            <h3>AI & Emerging Technologies</h3>
+            <p>Explorations in AI-powered media, chatbots, avatars, workflow automation, and emerging tools for scalable learning design.</p>
+            <a class="project-link" href="projects/ai-emerging-technologies.html">Read case study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">Internal Tools</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">Automation</span><span class="tag">HTML/CSS</span><span class="tag">Operations</span></div>
+            <h3>Solution Development & Automation</h3>
+            <p>Custom internal tools and workflows designed to improve production efficiency, editorial consistency, and standards alignment.</p>
+            <a class="project-link" href="projects/solution-development.html">Read case study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">Games & Immersive Learning</div>
+          <div class="project-body">
+            <div class="tag-row"><span class="tag">Games</span><span class="tag">VR</span><span class="tag">Language learning</span></div>
+            <h3>Games, VR & Immersive Learning</h3>
+            <p>Projects exploring virtual reality, alternate reality games, mobile learning, and game-inspired approaches to language education.</p>
+            <a class="project-link" href="projects/games-vr-immersive-learning.html">Read case study →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach" aria-labelledby="approach-title">
+      <div class="section-head">
+        <h2 id="approach-title">How I work</h2>
+        <p>I approach learning products as systems: learner needs, content architecture, technology, operations, and outcomes all have to work together.</p>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3>My role is often to connect the pieces.</h3>
+          <p>I bridge pedagogy, technology, and product strategy—helping teams evaluate emerging tools, define learning architectures, create scalable workflows, and build experiences that feel practical for learners and manageable for organizations.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item"><strong>Define the learning architecture.</strong><div>Clarify audience, outcomes, progression, assessment strategy, and the learner journey.</div></div>
+          <div class="timeline-item"><strong>Translate strategy into products.</strong><div>Design digital experiences, activities, media, tools, and support systems that can scale.</div></div>
+          <div class="timeline-item"><strong>Prototype, test, and improve.</strong><div>Use feedback, analytics, pilots, and stakeholder input to refine the learner experience.</div></div>
+          <div class="timeline-item"><strong>Operationalize quality.</strong><div>Create standards, workflows, templates, and tools that help teams produce consistent work.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" aria-labelledby="technology-title">
+      <div class="section-head">
+        <h2 id="technology-title">Technology & platforms</h2>
+        <p>A technically fluent learning professional comfortable with authoring tools, media production, AI, web technologies, and workflow automation.</p>
+      </div>
+
+      <div class="panel tech-list">
+        <p><strong>Learning Platforms:</strong> Canvas • Blackboard • D2L • Totara • Sakai • Articulate 360 (Storyline, Rise) • Parta</p>
+        <p><strong>AI & Emerging Technologies:</strong> Generative AI • Prompt Engineering • AI-Assisted Development • AI Media Creation (Synthesia, HeyGen, ElevenLabs)</p>
+        <p><strong>Multimedia Production:</strong> Adobe Creative Cloud (Photoshop, Illustrator, Premiere Pro, After Effects, Audition)</p>
+        <p><strong>Solution Development & Automation:</strong> Internal Tool Development • Rapid Prototyping • Workflow Automation • HTML • CSS</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <h2 id="contact-title">Interested in learning products, AI, or learning experience strategy?</h2>
+        <p>I’m open to conversations about learning product roles, instructional design leadership, higher education course development, and emerging technology in learning.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="button primary" href="mailto:trenthoy@gmail.com">Email me</a>
+          <a class="button secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="button secondary" href="resume.pdf">Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Trent Hoy</div>
+    <div>Designed and developed as a custom portfolio site.</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
