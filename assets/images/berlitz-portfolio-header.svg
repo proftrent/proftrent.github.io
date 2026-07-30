@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 476" role="img" aria-labelledby="title desc">
+  <title id="title">A connected learning product ecosystem</title>
+  <desc id="desc">Abstract blue geometric forms connect learning products, systems, and teams.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c305a"/>
+      <stop offset="0.58" stop-color="#1469ad"/>
+      <stop offset="1" stop-color="#55b7ee"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#082441" flood-opacity=".25"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="476" fill="url(#bg)"/>
+  <path d="M0 370 270 75l180 201L642 30l221 242 193-173 224 184v193H0Z" fill="#fff" opacity=".08"/>
+  <path d="M0 0h340L145 193 0 142Zm1280 0v165l-205-65 77-100Z" fill="#8ad8f4" opacity=".24"/>
+  <g stroke="#d8f3ff" stroke-width="5" opacity=".7">
+    <path d="M275 241 487 132 651 239 854 123 1038 247" fill="none"/>
+    <path d="M487 132v220M651 239v113M854 123v229" fill="none" opacity=".65"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="170" y="177" width="210" height="128" rx="18" fill="#fff"/>
+    <rect x="428" y="72" width="190" height="120" rx="18" fill="#d8f3ff"/>
+    <rect x="565" y="205" width="174" height="112" rx="18" fill="#fff"/>
+    <rect x="782" y="62" width="178" height="122" rx="18" fill="#d8f3ff"/>
+    <rect x="948" y="184" width="180" height="126" rx="18" fill="#fff"/>
+  </g>
+  <g fill="#1469ad">
+    <circle cx="214" cy="220" r="15"/><rect x="242" y="207" width="96" height="12" rx="6"/><rect x="202" y="253" width="136" height="10" rx="5" opacity=".45"/>
+    <circle cx="472" cy="113" r="14"/><rect x="499" y="101" width="78" height="11" rx="6"/><rect x="460" y="144" width="117" height="9" rx="5" opacity=".45"/>
+    <circle cx="607" cy="246" r="13"/><rect x="633" y="235" width="69" height="10" rx="5"/><rect x="597" y="276" width="105" height="9" rx="5" opacity=".45"/>
+    <circle cx="824" cy="105" r="14"/><rect x="851" y="94" width="71" height="11" rx="6"/><rect x="813" y="136" width="109" height="9" rx="5" opacity=".45"/>
+    <circle cx="990" cy="228" r="14"/><rect x="1017" y="217" width="74" height="11" rx="6"/><rect x="979" y="259" width="112" height="9" rx="5" opacity=".45"/>
+  </g>
+  <g fill="#8ad8f4" stroke="#fff" stroke-width="5">
+    <circle cx="275" cy="241" r="20"/><circle cx="487" cy="132" r="20"/><circle cx="651" cy="239" r="20"/><circle cx="854" cy="123" r="20"/><circle cx="1038" cy="247" r="20"/>
+  </g>
+</svg>
