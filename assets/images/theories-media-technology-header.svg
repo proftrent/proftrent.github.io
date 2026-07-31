@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Theories of Media and Technology</title>
+  <desc id="desc">Geometric blue project artwork for the Theories of Media and Technology online course.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c305a"/><stop offset=".52" stop-color="#175f9b"/><stop offset="1" stop-color="#55b7ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#bg)"/>
+  <path d="M0 80l350-80 260 225-330 155 210 220H0z" fill="#fff" opacity=".12"/>
+  <path d="M1600 0h-390l-190 195 300 140-230 265h510z" fill="#d8f1fd" opacity=".17"/>
+  <path d="M480 0l300 210L630 600H350l180-250-300-175z" fill="#55b7ee" opacity=".17"/>
+  <text x="800" y="260" fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="80" font-weight="800" text-anchor="middle">Theories of Media</text>
+  <text x="800" y="370" fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="80" font-weight="800" text-anchor="middle">and Technology</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Organizational Behavior</title>
+  <desc id="desc">Geometric blue project artwork for the Organizational Behavior online course.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c305a"/><stop offset=".58" stop-color="#1469ad"/><stop offset="1" stop-color="#55b7ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#bg)"/>
+  <path d="M0 0h430L250 190l330 110-270 300H0z" fill="#fff" opacity=".11"/>
+  <path d="M1600 0h-470l160 175-300 105 250 320h360z" fill="#fff" opacity=".15"/>
+  <path d="M0 455l370-170 270 315H0z" fill="#8ad8f4" opacity=".22"/>
+  <path d="M1600 420l-365-180-245 360h610z" fill="#0c305a" opacity=".2"/>
+  <text x="800" y="270" fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="88" font-weight="800" text-anchor="middle">Organizational</text>
+  <text x="800" y="380" fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="88" font-weight="800" text-anchor="middle">Behavior</text>
+</svg>
