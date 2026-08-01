@@ -84,12 +84,18 @@ h1,h2,h3{margin-top:0;line-height:1.1;letter-spacing:-.035em}h1{max-width:760px;
 .home-scope{display:grid;gap:.42rem;margin:1.2rem 0 1.35rem;padding:0;list-style:none}
 .home-scope li{position:relative;padding-left:1.6rem;color:#324c66;font-size:clamp(1.02rem,1.45vw,1.18rem);font-weight:700}
 .home-scope li::before{content:"";position:absolute;left:.1rem;top:.36rem;width:.7rem;height:.38rem;border-left:3px solid var(--blue);border-bottom:3px solid var(--blue);transform:rotate(-45deg)}
-.breadcrumbs{border-bottom:1px solid rgba(20,105,173,.16);background:#cceafb}
+.breadcrumbs{position:sticky;z-index:9;top:64px;border-bottom:1px solid rgba(20,105,173,.16);background:rgba(204,234,251,.97);backdrop-filter:blur(10px)}
 .breadcrumbs .container{display:flex;flex-wrap:wrap;gap:.42rem;padding-block:.52rem;color:#385a76;font-size:.78rem;font-weight:700}
 .breadcrumbs a{color:var(--navy);text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}.breadcrumbs span[aria-current=page]{color:var(--blue)}
 .project-card{position:relative}.coming-soon{position:absolute;z-index:2;top:.75rem;right:.75rem;padding:.28rem .62rem;border-radius:999px;background:var(--navy);color:#fff;font-size:.68rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 4px 12px rgba(12,48,90,.2)}
 .project-card.is-placeholder:hover{transform:none}.project-card.is-placeholder>a{cursor:default}
+.project-card-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;padding:.5rem 1.25rem;border-bottom:1px solid var(--line);background:#fff;color:var(--ink);font-size:.76rem;font-weight:800;line-height:1.2}
+.project-card-org{display:flex;min-width:0;align-items:center;gap:.55rem}.project-card-org>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.org-logo-group{display:flex;flex:0 0 auto;align-items:center}.project-card .org-logo,.workbench-card .org-logo{width:24px;height:24px;aspect-ratio:1;border:1px solid rgba(12,48,90,.1);border-radius:5px;background:#fff;object-fit:cover}.org-logo-group .org-logo+ .org-logo{margin-left:-5px;box-shadow:0 0 0 2px #fff}
+.project-card-year{flex:0 0 auto;color:var(--navy);white-space:nowrap}
+.project-card-body,.workbench-copy{padding-top:.85rem}
 @media(max-width:620px){.main-nav{max-width:270px}.main-nav a,.nav-dropdown>button{font-size:.74rem}.nav-menu{right:0;left:auto;min-width:220px}}
+@media(max-width:620px){.project-card-meta{padding-inline:1rem}.project-card-org>span:last-child{white-space:normal}.project-card-year{font-size:.7rem}}
 
 /* Homepage career progression */
 .career-scale{background:linear-gradient(160deg,#fff 0%,#f5fbff 58%,#e5f5fd 100%)}
