@@ -1,0 +1,22 @@
+.emotionopolis-page .interaction-sequence {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.emotionopolis-page .evidence-tools {
+  width: 88%;
+}
+
+@media (max-width: 900px) {
+  .emotionopolis-page .interaction-sequence {
+    grid-template-columns: 1fr;
+    width: min(86%, 680px);
+  }
+}
+
+@media (max-width: 700px) {
+  .emotionopolis-page .interaction-sequence,
+  .emotionopolis-page .evidence-tools {
+    width: 100%;
+  }
+}

@@ -1,0 +1,76 @@
+.french-vowels-page[data-layout="tabs"] figure.interface-overview {
+  width: 100%;
+  margin: 0;
+}
+
+.french-vowels-page .interaction-demo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+
+.french-vowels-page .interaction-features {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 0;
+}
+
+.french-vowels-page .interaction-features article {
+  min-height: 132px;
+}
+
+.french-vowels-page[data-layout="tabs"] figure.build-view {
+  width: min(92%, 1040px);
+  margin: 1.2rem auto 0;
+}
+
+.french-vowels-page[data-layout="tabs"] figure.interface-overview .tab-media-frame,
+.french-vowels-page[data-layout="tabs"] figure.build-view .tab-media-frame {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  flex: 0 0 auto;
+}
+
+.french-vowels-page[data-layout="tabs"] figure.interface-overview .tab-media-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.french-vowels-page[data-layout="tabs"] figure.build-view .tab-media-frame {
+  aspect-ratio: 16 / 9;
+}
+
+.french-vowels-page[data-layout="tabs"] figure.interface-overview .tab-media-frame img,
+.french-vowels-page[data-layout="tabs"] figure.build-view .tab-media-frame img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .french-vowels-page[data-layout="tabs"] figure.interface-overview,
+  .french-vowels-page[data-layout="tabs"] figure.build-view {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .french-vowels-page .interaction-demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .french-vowels-page .interaction-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .french-vowels-page .interaction-features {
+    grid-template-columns: 1fr;
+  }
+
+  .french-vowels-page .interaction-features article {
+    min-height: 0;
+  }
+}

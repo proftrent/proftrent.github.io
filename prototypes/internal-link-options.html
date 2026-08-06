@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Internal Link Design Options | ProfTrent Prototype</title>
+  <link rel="icon" href="../assets/images/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../styles.css?v=20260802-7">
+  <style>
+    :root{--prototype-bg:#f4f9fc;--prototype-card:#fff;--prototype-shadow:0 14px 34px rgba(12,48,90,.09)}
+    body{background:var(--prototype-bg)}
+    .prototype-hero{padding:clamp(42px,7vw,84px) 0;background:linear-gradient(145deg,#0c305a,#1469ad);color:#fff}
+    .prototype-hero h1{max-width:850px;margin:0;color:#fff;font-size:clamp(2.1rem,5vw,4.4rem);letter-spacing:-.045em;line-height:1}
+    .prototype-hero p{max-width:720px;margin:1rem 0 0;color:#dceffc;font-size:1.05rem;line-height:1.65}
+    .prototype-section{padding:clamp(42px,6vw,76px) 0}
+    .prototype-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:2rem;align-items:start;margin-bottom:2rem}
+    .prototype-intro h2{margin:0;color:var(--navy);font-size:clamp(1.7rem,3vw,2.5rem)}
+    .prototype-intro p{margin:.5rem 0 0;color:var(--muted);line-height:1.65}
+    .legend{display:flex;flex-wrap:wrap;gap:.7rem;padding:1rem;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .legend span{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.82rem;font-weight:750}
+    .legend i{width:.7rem;height:.7rem;border-radius:50%;background:var(--cyan)}
+    .legend span:last-child i{background:var(--navy)}
+    .option-grid{display:grid;gap:1.25rem}
+    .option-card{overflow:hidden;border:1px solid #bed9e9;border-radius:14px;background:var(--prototype-card);box-shadow:var(--prototype-shadow)}
+    .option-head{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1.25rem 1.4rem;border-bottom:1px solid var(--line);background:linear-gradient(120deg,#edf8fe,#fff)}
+    .option-number{display:grid;width:2.35rem;height:2.35rem;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-weight:850}
+    .option-head h3{margin:0;color:var(--navy);font-size:1.25rem}
+    .option-head p{margin:.28rem 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}
+    .option-demo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:2rem;padding:clamp(1.3rem,3vw,2.2rem)}
+    .sample-copy{font-size:1rem;line-height:1.75}
+    .sample-copy p{margin:0}
+    .sample-copy p+p{margin-top:1rem}
+    .sample-label{margin:0 0 .65rem;color:var(--blue);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+    .contrast-box{padding:1.1rem;border-radius:10px;background:#f5f9fc}
+    .contrast-box p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.55}
+    .contrast-box p+p{margin-top:.9rem}
+    .external-example{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+
+    /* Option 1: highlighter */
+    .link-highlight{display:inline;padding:.08em .18em .12em;border-radius:.2em;background:linear-gradient(transparent 38%,#c9edff 38%);color:var(--navy);font-weight:800;text-decoration:none;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background .18s ease,color .18s ease}
+    .link-highlight::after{content:' →';white-space:nowrap;color:var(--blue)}
+    .link-highlight:hover{background:linear-gradient(transparent 12%,#a9e1fa 12%)}
+
+    /* Option 2: directional underline */
+    .link-underline{color:var(--navy);font-weight:800;text-decoration-line:underline;text-decoration-color:var(--cyan);text-decoration-thickness:3px;text-underline-offset:.2em;transition:color .18s ease,text-decoration-thickness .18s ease}
+    .link-underline::after{content:' →';white-space:nowrap;color:var(--blue);text-decoration:none}
+    .link-underline:hover{color:var(--blue);text-decoration-thickness:5px}
+
+    /* Option 3: compact chip */
+    .link-chip{display:inline-flex;align-items:center;gap:.42rem;margin:.08rem .14rem;padding:.18rem .55rem .2rem;border:1px solid #9ed3ee;border-radius:999px;background:#eaf7fd;color:var(--navy);font-size:.88em;font-weight:800;line-height:1.35;text-decoration:none;vertical-align:baseline;transition:border-color .18s ease,background .18s ease,transform .18s ease}
+    .link-chip::before{content:'Case study';color:var(--blue);font-size:.66em;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .link-chip::after{content:'→';color:var(--blue)}
+    .link-chip:hover{border-color:var(--blue);background:#d9f1fc;transform:translateY(-1px)}
+
+    /* Option 5: compact chip with project icon */
+    .link-project-icon{display:inline-flex;align-items:center;gap:.4rem;margin:.08rem .14rem;padding:.18rem .55rem .2rem .4rem;border:1px solid #9ed3ee;border-radius:999px;background:#eaf7fd;color:var(--navy);font-size:.88em;font-weight:800;line-height:1.35;text-decoration:none;vertical-align:baseline;transition:border-color .18s ease,background .18s ease,transform .18s ease}
+    .link-project-icon .project-icon{display:grid;width:1.15rem;height:1.15rem;place-items:center;border-radius:50%;background:var(--navy);color:#fff}
+    .link-project-icon .project-icon svg{width:.68rem;height:.68rem;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8}
+    .link-project-icon::after{content:'→';color:var(--blue)}
+    .link-project-icon:hover{border-color:var(--blue);background:#d9f1fc;transform:translateY(-1px)}
+
+    /* Option 4: related-project card */
+    .related-card{position:relative;display:grid;grid-template-columns:58px 1fr auto;gap:1rem;align-items:center;margin-top:1.25rem;padding:1rem 1.1rem;border:1px solid #a9d7ee;border-left:5px solid var(--cyan);border-radius:10px;background:linear-gradient(120deg,#eef9ff,#fff);color:var(--navy);text-decoration:none;box-shadow:0 7px 18px rgba(12,48,90,.07);transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+    .related-card img{width:58px;height:44px;border-radius:6px;object-fit:cover}
+    .related-card small{display:block;margin-bottom:.15rem;color:var(--blue);font-size:.65rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+    .related-card strong{display:block;font-size:.98rem}
+    .related-card span{color:var(--muted);font-size:.78rem;line-height:1.4}
+    .related-card b{color:var(--blue);font-size:1.25rem}
+    .related-card:hover{border-color:var(--blue);box-shadow:0 12px 26px rgba(12,48,90,.12);transform:translateY(-2px)}
+
+    .focus-note{margin-top:1.5rem;padding:1rem 1.1rem;border-left:4px solid var(--cyan);background:#fff;color:var(--muted);font-size:.86rem;line-height:1.6}
+    .option-card a:focus-visible{outline:3px solid #f2b705;outline-offset:3px}
+    .recommendation{border-color:var(--cyan)}
+    .recommendation .option-head{background:linear-gradient(120deg,#dff5ff,#fff)}
+    .recommendation-badge{display:inline-block;margin-left:.5rem;padding:.18rem .45rem;border-radius:999px;background:var(--navy);color:#fff;font-size:.62rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+    @media(max-width:800px){.prototype-intro,.option-demo{grid-template-columns:1fr}.option-demo{gap:1.2rem}.related-card{grid-template-columns:48px 1fr auto}.related-card img{width:48px;height:40px}}
+    @media(max-width:520px){.link-chip,.link-project-icon{display:inline-grid;grid-template-columns:auto 1fr auto}.related-card{grid-template-columns:1fr auto}.related-card img{display:none}}
+    @media(prefers-reduced-motion:reduce){.link-chip,.link-project-icon,.related-card{transition:none}.link-chip:hover,.link-project-icon:hover,.related-card:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="../index.html">Trent Hoy</a><nav class="main-nav" aria-label="Prototype navigation"><a href="../work/auditing-i.html">Auditing I</a><a href="../work/kitchen-cordon-bleu.html">Kitchen Cordon Bleu</a></nav></div></header>
+  <main id="content">
+    <header class="prototype-hero"><div class="container"><p class="eyebrow">Design prototype</p><h1>Internal project-link options</h1><p>Five ways to distinguish links to other ProfTrent case studies from ordinary links and external destinations—shown inside realistic portfolio copy.</p></div></header>
+    <section class="prototype-section"><div class="container">
+      <div class="prototype-intro"><div><h2>Compare them in context</h2><p>Each option below uses the same relationship between the Auditing I course case study and the Kitchen Cordon Bleu simulation deep dive. Try hovering, tabbing through the links, and viewing the page at different widths.</p></div><div class="legend" aria-label="Link legend"><span><i></i> Internal ProfTrent project</span><span><i></i> External destination</span></div></div>
+      <div class="option-grid">
+        <article class="option-card recommendation"><header class="option-head"><span class="option-number">1</span><div><h3>Highlighted inline link <span class="recommendation-badge">Recommended</span></h3><p>A restrained highlighter effect makes the destination feel editorial and special without interrupting the sentence.</p></div></header><div class="option-demo"><div><p class="sample-label">Inside running text</p><div class="sample-copy"><p>It served as the accessible companion to the larger <a class="link-highlight" href="../work/auditing-i.html">ACT 4210: Auditing I redesign</a>, but was substantial enough that any student could choose it.</p><p>When the planned formats created a barrier, I built <a class="link-highlight" href="../work/kitchen-cordon-bleu.html">Kitchen Cordon Bleu</a> as a separate Storyline simulation preserving the same professional outcomes.</p></div></div><aside class="contrast-box"><p class="sample-label">External contrast</p><p>Linda later discussed the project in her <a class="external-example" href="https://nsuworks.nova.edu/lec_conference/2024/events/21/">2024 conference presentation ↗</a>.</p><p><strong>Character:</strong> Editorial, noticeable, still fluent inside prose.</p></aside></div></article>
+
+        <article class="option-card"><header class="option-head"><span class="option-number">2</span><div><h3>Directional underline</h3><p>The most restrained approach: a thicker cyan underline and right arrow distinguish internal navigation.</p></div></header><div class="option-demo"><div><p class="sample-label">Inside running text</p><div class="sample-copy"><p>It served as the accessible companion to the larger <a class="link-underline" href="../work/auditing-i.html">ACT 4210: Auditing I redesign</a>, but was substantial enough that any student could choose it.</p><p>When the planned formats created a barrier, I built <a class="link-underline" href="../work/kitchen-cordon-bleu.html">Kitchen Cordon Bleu</a> as a separate Storyline simulation preserving the same professional outcomes.</p></div></div><aside class="contrast-box"><p class="sample-label">External contrast</p><p>Linda later discussed the project in her <a class="external-example" href="https://nsuworks.nova.edu/lec_conference/2024/events/21/">2024 conference presentation ↗</a>.</p><p><strong>Character:</strong> Quiet, familiar, and least disruptive.</p></aside></div></article>
+
+        <article class="option-card"><header class="option-head"><span class="option-number">3</span><div><h3>Inline project chip</h3><p>A compact capsule labels the destination explicitly as a case study. It is clearest, but changes the rhythm of prose.</p></div></header><div class="option-demo"><div><p class="sample-label">Inside running text</p><div class="sample-copy"><p>It served as the accessible companion to the larger <a class="link-chip" href="../work/auditing-i.html">Auditing I</a>, but was substantial enough that any student could choose it.</p><p>When the planned formats created a barrier, I built <a class="link-chip" href="../work/kitchen-cordon-bleu.html">Kitchen Cordon Bleu</a> as a separate Storyline simulation preserving the same professional outcomes.</p></div></div><aside class="contrast-box"><p class="sample-label">External contrast</p><p>Linda later discussed the project in her <a class="external-example" href="https://nsuworks.nova.edu/lec_conference/2024/events/21/">2024 conference presentation ↗</a>.</p><p><strong>Character:</strong> Product-like, explicit, and highly scannable.</p></aside></div></article>
+
+        <article class="option-card"><header class="option-head"><span class="option-number">4</span><div><h3>Related-project card</h3><p>A small contextual card gives major cross-links room to explain why the reader should continue.</p></div></header><div class="option-demo"><div><p class="sample-label">At the end of a section</p><div class="sample-copy"><p>Novel technology earns its place when the course prepares learners to use it, connects it directly to authentic performance, and evaluates its limitations honestly.</p></div><a class="related-card" href="../work/kitchen-cordon-bleu.html"><img src="../assets/images/kitchen-cordon-bleu-header.webp" alt=""><span><small>Related project</small><strong>Kitchen Cordon Bleu</strong><span>See how the accessible desktop simulation was designed and built.</span></span><b aria-hidden="true">→</b></a></div><aside class="contrast-box"><p class="sample-label">Best used for</p><p>One or two high-priority relationships where a description adds value. It is too prominent for every internal link.</p><p><strong>Character:</strong> Deliberate, visual, and destination-focused.</p></aside></div></article>
+
+        <article class="option-card"><header class="option-head"><span class="option-number">5</span><div><h3>Inline project chip with icon</h3><p>The same compact treatment as Option 3, but a small portfolio icon replaces the written “Case study” label.</p></div></header><div class="option-demo"><div><p class="sample-label">Inside running text</p><div class="sample-copy"><p>It served as the accessible companion to the larger <a class="link-project-icon" href="../work/auditing-i.html"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 4.5h11v8h-11zM5.5 4.5V3h5v1.5M2.5 7h11"></path></svg></span><span>Auditing I</span></a>, but was substantial enough that any student could choose it.</p><p>When the planned formats created a barrier, I built <a class="link-project-icon" href="../work/kitchen-cordon-bleu.html"><span class="project-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 4.5h11v8h-11zM5.5 4.5V3h5v1.5M2.5 7h11"></path></svg></span><span>Kitchen Cordon Bleu</span></a> as a separate Storyline simulation preserving the same professional outcomes.</p></div></div><aside class="contrast-box"><p class="sample-label">External contrast</p><p>Linda later discussed the project in her <a class="external-example" href="https://nsuworks.nova.edu/lec_conference/2024/events/21/">2024 conference presentation ↗</a>.</p><p><strong>Character:</strong> Compact, visual, and less text-heavy than Option 3.</p></aside></div></article>
+      </div>
+      <p class="focus-note"><strong>Suggested system:</strong> use Option 1, 2, or 5 for links embedded in prose, Option 4 for the primary companion-project handoff at the end of a section, and retain underlined text plus ↗ for external destinations.</p>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container">Prototype · © 2026 Trent Hoy</div></footer>
+</body>
+</html>
