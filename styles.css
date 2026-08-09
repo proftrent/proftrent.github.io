@@ -118,7 +118,7 @@ h1,h2,h3{margin-top:0;line-height:1.1;letter-spacing:-.035em}h1{max-width:760px;
 
 /* Project overview: concise narrative followed by a consistent at-a-glance dashboard */
 .project-overview{padding:clamp(24px,3vw,38px) 0 clamp(30px,4vw,48px)}
-.overview-heading{margin-bottom:clamp(18px,2vw,24px)}.overview-heading .project-title{margin:0}
+.overview-heading{margin-bottom:clamp(18px,2vw,24px)}.overview-heading .project-title{width:100%;max-width:none;margin:0}
 .project-inline-summary{margin-bottom:clamp(26px,3vw,36px)}
 .project-inline-summary h2{margin-bottom:clamp(18px,2vw,24px);color:var(--blue);font-size:clamp(1.4rem,2vw,1.85rem)}
 .project-inline-summary .project-summary-copy{max-width:none}
@@ -174,7 +174,6 @@ h1,h2,h3{margin-top:0;line-height:1.1;letter-spacing:-.035em}h1{max-width:760px;
 @media(max-width:900px){.case-editorial-lead{grid-template-columns:1fr;gap:1.25rem}.case-dashboard .overview-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;overflow:visible;border:0;background:transparent;box-shadow:none}.case-dashboard .overview-meta-item,.case-dashboard .overview-meta-item:last-child{border:1px solid #b9d4e5}.case-dashboard .overview-story{grid-template-columns:repeat(2,minmax(0,1fr))}.case-dashboard .overview-takeaway{grid-column:1 / -1}}
 @media(max-width:620px){.case-dashboard .overview-meta,.case-dashboard .overview-story{grid-template-columns:1fr}.case-dashboard .overview-takeaway{grid-column:auto}}
 .game-of-phones-page .case-dashboard .overview-meta{grid-template-columns:1fr .72fr 1.85fr .9fr}
-.game-of-phones-page .overview-heading .project-title{max-width:none}
 .game-of-phones-page .context-org>span:last-child{grid-row:1 / span 2;align-self:center}
 .game-of-phones-page .overview-scale dd{font-size:.8rem}
 @media(min-width:901px){.game-of-phones-page .overview-scale dd p{white-space:nowrap}}
